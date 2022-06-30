@@ -1,0 +1,33 @@
+
+<div class="row">
+  <div class="col-md-2 mx-auto">
+    <a class="btn btn-primary m-2" [routerLink]="['']">Agregar contacto</a>
+  </div>
+</div>
+<div class="col-md-7 mx-auto mt-4">
+  <table class="table table-dark table-striped mx-auto">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>Create At</td>
+        <td>Options</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of listContacts">
+        <td>{{contact.id}}</td>
+        <td>{{contact.firstName}}</td>
+        <td>{{contact.lastName}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.createdAt}}</td>
+        <td>
+          <a class="btn btn-secondary m-1" [routerLink]="['/editContact']">Edit</a>
+          <a class="btn btn-danger" (click)="delete(contact.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
